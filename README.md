@@ -9,11 +9,12 @@ Things you may want to cover:
 
 * 3.1.2
 
-- Workbook
-
+## Workbook
 1. create Rails Project with EsBuild for JavaScript bundling, PostgreSQL for Database, and skip Suite.
-
-- rails new rails-template --javascript=esbuild --database=postgresql -T
+   - rails new rails-template --javascript=esbuild --database=postgresql -T
+2. Suite Testing setup
+   - bundler add rspec-rails -g development,test
+   - bin/rails g rspec:install
 
 * System dependencies
 
