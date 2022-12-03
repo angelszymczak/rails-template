@@ -20,7 +20,8 @@ Things you may want to cover:
    - bundler add factory_bot_rails -g development,test
 5. Faker testing data generator
    - bundler add factory_bot_rails -g development,test
-
+6. Shoulda Matchers for ActiveRecord & ActiveModel
+   - bundler add shoulda-matchers -g development,test
 * System dependencies
 
 * Configuration
