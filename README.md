@@ -22,6 +22,9 @@ Things you may want to cover:
    - bundler add factory_bot_rails -g development,test
 6. Shoulda Matchers for ActiveRecord & ActiveModel
    - bundler add shoulda-matchers -g development,test
+7. Assign Matchers for controllers
+   - bundler add rails-controller-testing -g development,test
+
 * System dependencies
 
 * Configuration
