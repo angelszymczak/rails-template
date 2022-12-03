@@ -24,6 +24,7 @@ Things you may want to cover:
    - bundler add shoulda-matchers -g development,test
 7. Assign Matchers for controllers
    - bundler add rails-controller-testing -g development,test
+8. Negated Matcher for Rspec
 
 * System dependencies
 
