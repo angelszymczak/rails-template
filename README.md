@@ -18,6 +18,8 @@ Things you may want to cover:
 3. Enable testing plugin support path
 4. Factory Method and Object Mother (Model's) design pattern
    - bundler add factory_bot_rails -g development,test
+5. Faker testing data generator
+   - bundler add factory_bot_rails -g development,test
 
 * System dependencies
 
