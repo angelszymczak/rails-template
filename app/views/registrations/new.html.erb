@@ -1,12 +1,8 @@
 <h1>Registrations#new</h1>
 
-<form id='user_registration_form' action='/signup' method='post'>
-  <label>
-    <input type='text' name='email' />
-  </label>
-  <label>
-    <input type='password' name='password' />
-  </label>
+<%= form_with(model: @user, id: 'user_registration_form', url: '/signup') do |f| %>
+  <p><%= f.text_field :email %></p>
+  <p><%= f.password_field :password %></p>
 
-  <button class='submit'>Register</button>
-</form>
+  <%= f.submit 'Register', class: 'submit' %>
+<% end %>
