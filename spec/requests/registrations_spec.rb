@@ -10,10 +10,10 @@ RSpec.describe 'Registrations' do
     end
   end
 
-  describe 'POST /registrations' do
-    it 'returns http found' do
-      post '/registrations', params: { email: Faker::Internet.email, password: Faker::Internet.password }
-      expect(response).to have_http_status(:found)
+  describe 'POST /signup' do
+    it 'returns http CREATED' do
+      post '/signup', params: { email: Faker::Internet.email, password: Faker::Internet.password }
+      expect(response).to have_http_status(:created)
     end
   end
 end
