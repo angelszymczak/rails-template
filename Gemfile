@@ -67,6 +67,9 @@ group :development, :test do
   gem "database_cleaner-active_record", "~> 2.0", require: false
   gem "guard", "~> 2.18"
   gem "guard-rspec", "~> 4.7", :require => false
+  gem "rubocop", "~> 1.39"
+  gem "rubocop-rails", "~> 2.17", require: false
+  gem "guard-rubocop", "~> 1.5"
 end
 
 group :development do
@@ -79,4 +82,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-

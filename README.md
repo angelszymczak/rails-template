@@ -40,6 +40,10 @@ Things you may want to cover:
 13. Guard watcher for live testing run
     - bundler add guard -g test,development
     - bundler add guard-rspec -g test,development --require false
+14. Rubocop style linter
+    - bundler add rubocop -g test,development
+    - bundler add rubocop-rails -g test,development --require false
+    - bundler add guard-rubocop -g test,development
 
 * System dependencies
 
