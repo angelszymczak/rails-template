@@ -16,3 +16,9 @@ Feature: Register a user
     Given a "" email and "" password data
     When sending registration user form
     Then display required data error
+
+  Scenario: the credentials are duplicated
+    Given a "duplicated@email.com" already registered
+    Given a "duplicated@email.com" email and "pass1234" password data
+    When sending registration user form
+    Then display duplicated data error
