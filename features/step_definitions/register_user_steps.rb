@@ -25,3 +25,13 @@ Then('display required data error') do
   expect(find('#user_errors')).to have_content(/Email can't be blank/)
   expect(find('#user_errors')).to have_content(/Password can't be blank/)
 end
+
+Given('a {string} already registered') do |duplicated_email|
+  FactoryBot.create(:user, email: duplicated_email)
+
+  expect(User.find_by(email: duplicated_email)).to be_present
+end
+
+Then('display duplicated data error') do
+  expect(find('#user_errors')).to have_content(/Email has already been taken/)
+end
