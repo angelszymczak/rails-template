@@ -25,6 +25,10 @@ Things you may want to cover:
 7. Assign Matchers for controllers
    - bundler add rails-controller-testing -g development,test
 8. Negated Matcher for Rspec
+9. Capybara for real user interactions with web app
+   - bundler add capybara -g development,test
+   - Selenium-WebDriver for Capybara web browser interaction support
+     - bundler add webdrivers -g development,test --require webdrivers/chromedriver
 
 * System dependencies
 

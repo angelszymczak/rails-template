@@ -56,6 +56,8 @@ group :development, :test do
   gem "faker", "~> 3.0"
   gem "shoulda-matchers", "~> 5.2"
   gem "rails-controller-testing", "~> 1.0"
+  gem "capybara", "~> 3.38"
+  gem "webdrivers", "~> 5.2", require: "webdrivers/chromedriver"
 end
 
 group :development do
