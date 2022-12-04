@@ -33,7 +33,7 @@ Things you may want to cover:
     - bundler add cucumber-rails -g development,test --require false
     - bundler add database_cleaner-active_record -g development,test --require false
 11. SimpleCov coverage reports
-   - bundler add simplecov -g test --require false
+    - bundler add simplecov -g test --require false
 12. SimpleCov Shields Badge
     - bundler add simplecov-shields-badge -g test --require false
     - [![Coverage](badge.svg)](https://angelszymczak.github.io/rails-template)
@@ -65,6 +65,8 @@ Things you may want to cover:
       - manual -> Bundler/OrderedGems
 15. Rubocop-Rspec extension
     - bundler add rubocop-rspec -g test,development
+16. Fuubar progression bar for spec feedback instead dots
+    - bundler add fuubar -g test,development
 
 * System dependencies
 

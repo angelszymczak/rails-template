@@ -81,6 +81,8 @@ group :development, :test do
   gem 'guard', '~> 2.18'
   gem 'guard-rspec', '~> 4.7', require: false
   gem 'guard-rubocop', '~> 1.5'
+
+  gem 'fuubar', '~> 2.5'
 end
 
 group :development do
