@@ -1,14 +1,22 @@
 # frozen_string_literal: true
 
 class RegistrationsController < ApplicationController
-  def new; end
+  def new
+    @user = User.new
+  end
 
   def create
-    user = User.new(email: params[:email], password: params[:password])
+    user = User.new(user_params)
     user.save
 
     respond_to do |format|
       format.html { render template: 'users/show', locals: { user: user }, status: :created }
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password)
   end
 end
