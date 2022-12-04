@@ -4,10 +4,11 @@ class RegistrationsController < ApplicationController
   def new; end
 
   def create
-    logger.info params
+    user = User.new(email: params[:email], password: params[:password])
+    user.save
 
     respond_to do |format|
-      format.html { render :new, status: :found }
+      format.html { render template: 'users/show', locals: { user: user }, status: :created }
     end
   end
 end
