@@ -18,5 +18,5 @@ When('sending user registration form') do
 end
 
 Then('user {string} is added') do |guest_email|
-  expect(User.find_by(email: guest_email)).to be_present
+  expect(find('#user').find('#email')).to have_content(guest_email)
 end
