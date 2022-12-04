@@ -8,7 +8,6 @@ Feature: Register a user
     Given a page for user registration
 
   Scenario: the credentials are ok
-    Given empty users
-    And a "user@sample.com" email and "pass1234" password data
+    Given a "user@sample.com" email and "pass1234" password data
     When sending registration user form
     Then user "user@sample.com" is added
