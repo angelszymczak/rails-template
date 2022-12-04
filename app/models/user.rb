@@ -6,7 +6,7 @@
 #
 #  id         :bigint           not null, primary key
 #  email      :string           not null
-#  password   :string
+#  password   :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
