@@ -11,8 +11,8 @@ end
 
 When('sending user registration form') do
   within('#user_registration_form') do
-    fill_in('email', with: @data[:email])
-    fill_in('password', with: @data[:password])
+    fill_in('user_email', with: @data[:email])
+    fill_in('user_password', with: @data[:password])
   end
   click_button('Register')
 end
