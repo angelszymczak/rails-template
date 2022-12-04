@@ -29,5 +29,21 @@ RSpec.describe User do
           .and raise_error(ActiveRecord::RecordInvalid)
       end
     end
+
+    context 'with password presence' do
+      it { is_expected.to validate_presence_of(:password) }
+
+      it 'when NIL value' do
+        expect { build(:user, password: nil).save! }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::RecordInvalid)
+      end
+
+      it 'when EMPTY value' do
+        expect { build(:user, password: '').save! }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
   end
 end
