@@ -12,7 +12,7 @@ RSpec.describe 'Registrations' do
 
   describe 'POST /signup' do
     it 'returns http CREATED' do
-      post '/signup', params: { user: { email: Faker::Internet.email, password: Faker::Internet.password } }
+      post '/signup', params: { user: attributes_for(:user) }
       expect(response).to have_http_status(:created)
     end
   end
