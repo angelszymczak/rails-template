@@ -1,0 +1,6 @@
+<%= form_with(model: @user, id: 'registration_user_form', url: '/signup') do |f| %>
+  <p><%= f.text_field :email %></p>
+  <p><%= f.password_field :password %></p>
+
+  <%= f.submit 'Register', class: 'submit' %>
+<% end %>
