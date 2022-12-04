@@ -7,10 +7,13 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
 
     respond_to do |format|
-      format.html { render template: 'users/show', status: :created }
+      if @user.save
+        format.html { render 'users/show', status: :created }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
