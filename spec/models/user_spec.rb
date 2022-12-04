@@ -17,6 +17,12 @@ RSpec.describe User do
           .and raise_error(ActiveRecord::RecordInvalid)
       end
 
+      it 'when NIL value skipping validations' do
+        expect { build(:user, email: nil).save!(validate: false) }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::NotNullViolation)
+      end
+
       it 'when EMPTY value' do
         expect { build(:user, email: '').save! }
           .to (not_change { described_class.count })
