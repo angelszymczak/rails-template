@@ -63,6 +63,8 @@ Things you may want to cover:
       - manual -> Lint/ConstantDefinitionInBlock
       - manual -> Lint/ScriptPermission
       - manual -> Bundler/OrderedGems
+15. Rubocop-Rspec extension
+    - bundler add rubocop-rspec -g test,development
 
 * System dependencies
 
