@@ -20,3 +20,8 @@ end
 Then('user {string} is added') do |guest_email|
   expect(find('#user').find('#email')).to have_content(guest_email)
 end
+
+Then('display required data error') do
+  expect(find('#user_errors')).to have_content(/Email can't be blank/)
+  expect(find('#user_errors')).to have_content(/Password can't be blank/)
+end
