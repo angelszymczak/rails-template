@@ -70,6 +70,13 @@ Things you may want to cover:
 17. Annotate tool for models columns auto doc
     - bundler add annotate -g test,development
 
+## BDD/TDD
+- system spec
+  - e2e spec => e2e with web browser automation and recorded fixed real data
+  - core spec => e2e with headless web browser automation and recorded fixed real data
+- request spec => http layer with mock I/O all path authorization/authentication it should talk with I/O test interface
+- model spec => domain layer it should talk with I/O test interface
+
 * System dependencies
 
 * Configuration
