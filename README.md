@@ -67,6 +67,8 @@ Things you may want to cover:
     - bundler add rubocop-rspec -g test,development
 16. Fuubar progression bar for spec feedback instead dots
     - bundler add fuubar -g test,development
+17. Annotate tool for models columns auto doc
+    - bundler add annotate -g test,development
 
 * System dependencies
 
