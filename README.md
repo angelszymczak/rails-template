@@ -30,10 +30,14 @@ Things you may want to cover:
    - Selenium-WebDriver for Capybara web browser interaction support
      - bundler add webdrivers -g development,test --require webdrivers/chromedriver
 10. BDD Framework for Business Readability Factor
-   - bundler add cucumber-rails -g development,test --require false
-   - bundler add database_cleaner-active_record -g development,test --require false
+    - bundler add cucumber-rails -g development,test --require false
+    - bundler add database_cleaner-active_record -g development,test --require false
 11. SimpleCov coverage reports
    - bundler add simplecov -g test --require false
+12. SimpleCov Shields Badge
+    - bundler add simplecov-shields-badge -g test --require false
+    - [![Coverage](badge.svg)](https://angelszymczak.github.io/rails-template)
+
 * System dependencies
 
 * Configuration
