@@ -30,6 +30,26 @@ RSpec.describe User do
       end
     end
 
+    context 'with email uniqueness' do
+      subject(:taken_user) { build(:user, email: 'taken@mail.com') }
+
+      before { taken_user.save }
+
+      it { is_expected.to validate_uniqueness_of(:email) }
+
+      it 'when try DUPLICATED value' do
+        expect { build(:user, email: taken_user.email).save! }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::RecordInvalid)
+      end
+
+      it 'when try DUPLICATED value skipping validations' do
+        expect { build(:user, email: taken_user.email).save!(validate: false) }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::RecordNotUnique)
+      end
+    end
+
     context 'with password presence' do
       it { is_expected.to validate_presence_of(:password) }
 
