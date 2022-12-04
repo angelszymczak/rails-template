@@ -2,4 +2,5 @@
 
 Rails.application.routes.draw do
   get '/signup', controller: :registrations, action: :new
+  post '/signup', controller: :registrations, action: :create
 end

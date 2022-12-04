@@ -10,7 +10,7 @@ Given('a {string} email and {string} password data') do |guest_email, guest_pass
 end
 
 When('sending user registration form') do
-  within '#user_registration_form' do
+  within('#user_registration_form') do
     fill_in('email', with: @data[:email])
     fill_in('password', with: @data[:password])
   end
