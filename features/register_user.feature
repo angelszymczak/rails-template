@@ -11,3 +11,8 @@ Feature: Register a user
     Given a "user@sample.com" email and "pass1234" password data
     When sending registration user form
     Then user "user@sample.com" is added
+
+  Scenario: the credentials are empty
+    Given a "" email and "" password data
+    When sending registration user form
+    Then display required data error
