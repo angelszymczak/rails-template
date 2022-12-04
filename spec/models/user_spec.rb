@@ -6,4 +6,22 @@ RSpec.describe User do
   describe 'factory creates a valid instance' do
     it { expect(create(:user)).to be_valid }
   end
+
+  describe 'validations' do
+    context 'with email presence' do
+      it { is_expected.to validate_presence_of(:email) }
+
+      it 'when NIL value' do
+        expect { build(:user, email: nil).save! }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::RecordInvalid)
+      end
+
+      it 'when EMPTY value' do
+        expect { build(:user, email: '').save! }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+  end
 end
