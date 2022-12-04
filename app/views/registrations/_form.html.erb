@@ -1,4 +1,13 @@
 <%= form_with(model: @user, id: 'registration_user_form', url: '/signup') do |f| %>
+
+  <% if @user.errors.any? %>
+    <ul id='user_errors'>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <p><%= f.text_field :email %></p>
   <p><%= f.password_field :password %></p>
 
