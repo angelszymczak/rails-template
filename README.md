@@ -37,6 +37,9 @@ Things you may want to cover:
 12. SimpleCov Shields Badge
     - bundler add simplecov-shields-badge -g test --require false
     - [![Coverage](badge.svg)](https://angelszymczak.github.io/rails-template)
+13. Guard watcher for live testing run
+    - bundler add guard -g test,development
+    - bundler add guard-rspec -g test,development --require false
 
 * System dependencies
 
