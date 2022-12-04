@@ -29,6 +29,9 @@ Things you may want to cover:
    - bundler add capybara -g development,test
    - Selenium-WebDriver for Capybara web browser interaction support
      - bundler add webdrivers -g development,test --require webdrivers/chromedriver
+10. BDD Framework for Business Readability Factor
+   - bundler add cucumber-rails -g development,test --require false
+   - bundler add database_cleaner-active_record -g development,test --require false
 
 * System dependencies
 

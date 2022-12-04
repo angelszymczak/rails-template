@@ -58,6 +58,8 @@ group :development, :test do
   gem "rails-controller-testing", "~> 1.0"
   gem "capybara", "~> 3.38"
   gem "webdrivers", "~> 5.2", require: "webdrivers/chromedriver"
+  gem "cucumber-rails", "~> 2.6", require: false
+  gem "database_cleaner-active_record", "~> 2.0", require: false
 end
 
 group :development do
