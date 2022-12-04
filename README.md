@@ -44,6 +44,25 @@ Things you may want to cover:
     - bundler add rubocop -g test,development
     - bundler add rubocop-rails -g test,development --require false
     - bundler add guard-rubocop -g test,development
+    - Fixing offenses
+      - rubocop -A --only Style/FrozenStringLiteralComment
+      - rubocop -A --only Layout/EmptyLineAfterMagicComment
+      - rubocop -A --only Style/HashSyntax
+      - rubocop -A --only Style/MutableConstant
+      - rubocop -A --only Style/RedundantFetchBlock
+      - rubocop -A --only Lint/RedundantDirGlobSort
+      - rubocop -A --only Style/StringConcatenation
+      - rubocop -A --only Style/GlobalStdStream
+      - rubocop -A --only Layout/SpaceInsideArrayLiteralBrackets
+      - rubocop -A --only Layout/SpaceInsidePercentLiteralDelimiters
+      - rubocop -A --only Style/SymbolArray
+      - rubocop -A --only Style/CommentAnnotation
+      - rubocop -A --only Style/BlockComments
+      - rubocop -A --only Layout/CommentIndentation
+      - manual -> Rails/FilePath
+      - manual -> Lint/ConstantDefinitionInBlock
+      - manual -> Lint/ScriptPermission
+      - manual -> Bundler/OrderedGems
 
 * System dependencies
 

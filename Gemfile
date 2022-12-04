@@ -1,31 +1,33 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4"
+gem 'rails', '~> 7.0.4'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem 'puma', '~> 5.0'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails"
+gem 'jsbundling-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -37,10 +39,10 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem 'bootsnap', require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -49,32 +51,40 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :test do
-  gem "simplecov", "~> 0.21.2", require: false
-  gem "simplecov-shields-badge", "~> 0.1.0", require: false
+  gem 'simplecov', '~> 0.21.2', require: false
+  gem 'simplecov-shields-badge', '~> 0.1.0', require: false
 end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "rspec-rails", "~> 6.0"
-  gem "factory_bot_rails", "~> 6.2"
-  gem "faker", "~> 3.0"
-  gem "shoulda-matchers", "~> 5.2"
-  gem "rails-controller-testing", "~> 1.0"
-  gem "capybara", "~> 3.38"
-  gem "webdrivers", "~> 5.2", require: "webdrivers/chromedriver"
-  gem "cucumber-rails", "~> 2.6", require: false
-  gem "database_cleaner-active_record", "~> 2.0", require: false
-  gem "guard", "~> 2.18"
-  gem "guard-rspec", "~> 4.7", :require => false
-  gem "rubocop", "~> 1.39"
-  gem "rubocop-rails", "~> 2.17", require: false
-  gem "guard-rubocop", "~> 1.5"
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+
+  gem 'rspec-rails', '~> 6.0'
+
+  gem 'rails-controller-testing', '~> 1.0'
+  gem 'shoulda-matchers', '~> 5.2'
+
+  gem 'factory_bot_rails', '~> 6.2'
+
+  gem 'faker', '~> 3.0'
+
+  gem 'capybara', '~> 3.38'
+  gem 'webdrivers', '~> 5.2', require: 'webdrivers/chromedriver'
+
+  gem 'cucumber-rails', '~> 2.6', require: false
+  gem 'database_cleaner-active_record', '~> 2.0', require: false
+
+  gem 'rubocop', '~> 1.39'
+  gem 'rubocop-rails', '~> 2.17', require: false
+
+  gem 'guard', '~> 2.18'
+  gem 'guard-rspec', '~> 4.7', require: false
+  gem 'guard-rubocop', '~> 1.5'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+  gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
