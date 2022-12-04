@@ -32,7 +32,8 @@ Things you may want to cover:
 10. BDD Framework for Business Readability Factor
    - bundler add cucumber-rails -g development,test --require false
    - bundler add database_cleaner-active_record -g development,test --require false
-
+11. SimpleCov coverage reports
+   - bundler add simplecov -g test --require false
 * System dependencies
 
 * Configuration
