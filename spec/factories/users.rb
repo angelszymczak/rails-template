@@ -2,7 +2,13 @@
 
 FactoryBot.define do
   factory :user do
-    email { Faker::Internet.email }
+    sequence(:email) do |n|
+      Faker::Internet.email(
+        name: "#{Faker::Internet.username(separators: %w[. - _])}+#{n}",
+        domain: %w[sample.com email.com].sample,
+      )
+    end
+
     password { Faker::Internet.password }
   end
 end
