@@ -1,11 +1,7 @@
 <%= form_with(model: user, id: 'user_registration_form', url: '/signup') do |f| %>
 
   <% if user.errors.any? %>
-    <ul id='user_errors'>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+    <%= render partial: 'errors', locals: { user: user } %>
   <% end %>
 
   <p><%= f.text_field :email %></p>
