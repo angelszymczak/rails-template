@@ -35,3 +35,7 @@ end
 Then('display duplicated data error') do
   expect(find('#user_errors')).to have_content(/Email has already been taken/)
 end
+
+Then('display email format error') do
+  expect(find('#user_errors')).to have_content(/Email invalid format error/)
+end
