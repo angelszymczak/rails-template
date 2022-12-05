@@ -29,5 +29,33 @@ class User < ApplicationRecord
     uniqueness: true,
     format: { with: EMAIL_PATTERN, message: I18n.t('errors.messages.format') }
 
-  validates :password, presence: true
+  validates :password,
+    presence: true,
+    length: { in: 8..32 }
+  validate :validate_password_format, if: :password_changed?
+
+  private
+
+  PASSWORD_RULES = {
+    at_least_one_lowercase_letter: /[a-z]+/,
+    at_least_one_uppercase_letter: /[A-Z]+/,
+    at_least_one_digit: /\d+/,
+    at_least_one_special_character: /[^A-Za-z0-9\s]+/,
+  }.freeze
+
+  def validate_password_format
+    PASSWORD_RULES.each do |rule, regex|
+      next if password.match?(regex)
+
+      errors.add(:password, rule)
+    end
+
+    validate_password_white_space
+  end
+
+  def validate_password_white_space
+    return unless password.match?(/\s/)
+
+    errors.add(:password, :avoid_white_space)
+  end
 end
