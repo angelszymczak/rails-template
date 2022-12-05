@@ -39,3 +39,12 @@ end
 Then('display email format error') do
   expect(find('#user_errors')).to have_content(/Email invalid format error/)
 end
+
+Then('display password format error') do
+  errors = find('#user_errors')
+  expect(errors).to have_content(/Password is too short \(minimum is 8 characters\)/)
+  expect(errors).to have_content(/Password must has at least one uppercase letter/)
+  expect(errors).to have_content(/Password must has at least one digit/)
+  expect(errors).to have_content(/Password must has at least one special character/)
+  expect(errors).to have_content(/Password must has not white spaces/)
+end
