@@ -28,3 +28,16 @@ Feature: Register a user
     Given a "duplicated@notawllowed.com" email and "pass1234" password data
     When sending registration user form
     Then display email format error
+
+  Scenario: verify the password format allowed with
+  a minimum length of 8 characters and
+  a maximum length of 32 characters,
+  at least is required
+  1 digit,
+  1 uppercase letter,
+  1 lowercase letter,
+  1 symbol
+  and avoid spaces.
+    Given a "valid@mail.com" email and "pass1234" password data
+    When sending registration user form
+    Then display password format error
