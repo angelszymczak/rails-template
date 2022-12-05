@@ -23,7 +23,8 @@ Feature: Register a user
     When sending registration user form
     Then display duplicated data error
 
-  Scenario: verify email format can register
+  Scenario: verify email format allowed with lowercase/uppercase Latin letters A-Za-z, digits 0-9, underscore, medium
+  dash, plus, and periods for the local section and 'email.com | mail.com | sample.com' domains.
     Given a "duplicated@notawllowed.com" email and "pass1234" password data
     When sending registration user form
     Then display email format error

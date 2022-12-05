@@ -50,6 +50,17 @@ RSpec.describe User do
       end
     end
 
+    context 'with email format' do
+      it { is_expected.to allow_value('user@email.com').for(:email) }
+      it { is_expected.not_to allow_value('user@not_allowed.com').for(:email) }
+
+      it 'when not allowed format email value' do
+        expect { build(:user, email: 'user@not_allowed.com').save! }
+          .to (not_change { described_class.count })
+          .and raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+
     context 'with password presence' do
       it { is_expected.to validate_presence_of(:password) }
 
