@@ -22,3 +22,8 @@ Feature: Register a user
     Given a "duplicated@email.com" email and "pass1234" password data
     When sending registration user form
     Then display duplicated data error
+
+  Scenario: verify email format can register
+    Given a "duplicated@notawllowed.com" email and "pass1234" password data
+    When sending registration user form
+    Then display email format error
