@@ -9,6 +9,15 @@ FactoryBot.define do
       )
     end
 
-    password { Faker::Internet.password }
+    password do
+      Faker::Alphanumeric.alpha(number: 1).downcase +
+        Faker::Alphanumeric.alpha(number: 1).upcase +
+        Faker::Number.number(digits: 1).to_s +
+        Faker::Internet.password(
+          min_length:         8,
+          max_length:         29,
+          special_characters: true
+        )
+    end
   end
 end

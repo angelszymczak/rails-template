@@ -82,5 +82,23 @@ RSpec.describe User do
           .and raise_error(ActiveRecord::RecordInvalid)
       end
     end
+
+    context 'with password format' do
+      {
+        'at minimum length': 'abc123+',
+        'at maximum length': 'abc-123-ABC-123-abc-123-ABC-123-34',
+        'at least one lowercase letter': 'ABC1234+',
+        'at least one uppercase letter': 'abc1234+',
+        'at least one digit': 'abcDEF+!',
+        'at least one special character': 'abcD1234',
+        'avoid white space': '123 +abc',
+      }.each do |rule_format, invalid_password|
+        it "when not accomplish #{rule_format}" do
+          expect { build(:user, password: invalid_password).save! }
+            .to (not_change { described_class.count })
+            .and raise_error(ActiveRecord::RecordInvalid)
+        end
+      end
+    end
   end
 end
