@@ -31,3 +31,18 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              at_least_one_uppercase_letter: 'must has at least one uppercase letter'
+              at_least_one_lowercase_letter: 'must has at least one lowercase letter'
+              at_least_one_digit: 'must has at least one digit'
+              at_least_one_special_character: 'must has at least one special character'
+              avoid_white_space: 'must has not white spaces'
+  errors:
+    messages:
+      format: "invalid format error"
