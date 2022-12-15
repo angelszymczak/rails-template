@@ -1,0 +1,11 @@
+<%= form_with(model: user, id: 'user_registration_form', url: '/signup') do |f| %>
+
+  <% if user.errors.any? %>
+    <%= render partial: 'errors', locals: { user: user } %>
+  <% end %>
+
+  <p><%= f.text_field :email %></p>
+  <p><%= f.password_field :password %></p>
+
+  <%= f.submit 'Register', class: 'submit' %>
+<% end %>
