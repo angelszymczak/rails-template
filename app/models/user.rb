@@ -4,17 +4,25 @@
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  email      :string           not null
-#  password   :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 # Indexes
 #
 #  index_users_on_email  (email) UNIQUE
 #
 class User < ApplicationRecord
+  has_secure_password
+
+  def self.authenticate(user, password)
+    user.authenticate(password).tap do |auth|
+      user.errors.add(:auth, I18n.t('errors.messages.format')) unless auth
+    end
+  end
+
   # Allow lower/uppercase Latin letters A-Za-z.
   # Allow digits 0-9.
   # Allow underscore, middle hyphen, plus, and dots.
@@ -32,7 +40,7 @@ class User < ApplicationRecord
   validates :password,
     presence: true,
     length: { in: 8..32 }
-  validate :validate_password_format, if: :password_changed?
+  validate :validate_password_format, if: -> { password.present? && password_digest_changed? }
 
   private
 

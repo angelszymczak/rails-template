@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: user_params[:email])
+    @user = User.find_by(email: user_params[:email])
 
-    if user
-      session[:email] = user.email
+    if User.authenticate(@user, user_params[:password])
+      session[:email] = @user.email
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity

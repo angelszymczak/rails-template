@@ -46,3 +46,4 @@ en:
   errors:
     messages:
       format: "invalid format error"
+      authentication: 'Invalid credentials'

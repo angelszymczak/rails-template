@@ -101,4 +101,11 @@ RSpec.describe User do
       end
     end
   end
+
+  describe '.authenticate' do
+    subject(:user) { create(:user) }
+
+    it { expect(described_class.authenticate(user, user.password)).to eq(user) }
+    it { expect(described_class.authenticate(user, 'wrong_pass')).to be_falsey }
+  end
 end
