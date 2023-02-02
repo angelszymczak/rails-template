@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: user_params[:email])
 
     if User.authenticate(@user, user_params[:password])
-      session[:email] = @user.email
+      session[:token] = JWT.encode({ user_id: @user.id }, Rails.application.secrets.secret_key_base, 'HS256')
+
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
