@@ -1,7 +1,17 @@
 name: First Workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'main'
+      - 'cicd/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello AngelDevs
+        env:
+          MESSAGE: Hello! from ${{ github.workflow }} triggered by the ${{ github.event_name }} done by ${{ github.actor }}
+        run: echo $MESSAGE
