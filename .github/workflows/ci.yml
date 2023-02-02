@@ -15,3 +15,10 @@ jobs:
         env:
           MESSAGE: Hello! from ${{ github.workflow }} triggered by the ${{ github.event_name }} done by ${{ github.actor }}
         run: echo $MESSAGE
+
+      - name: 😺 More and More
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: |
+          echo "Job Context: $JOB_CONTEXT"
+          echo "Done!"
