@@ -47,3 +47,7 @@ en:
     messages:
       format: "invalid format error"
       authentication: 'Invalid credentials'
+    authenticate_request:
+      missing_token: 'Missing Authorization Token'
+      invalid_token: 'Invalid Authorization Token'
+      user_not_found: 'Not found user'

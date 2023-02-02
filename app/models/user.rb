@@ -42,6 +42,13 @@ class User < ApplicationRecord
     length: { in: 8..32 }
   validate :validate_password_format, if: -> { password.present? && password_digest_changed? }
 
+  def sign_token
+    {
+      value: JWT.encode({ user_id: user.id }, Rails.application.secrets.secret_key_base, 'HS256'),
+      expires: 10.minutes.from_now,
+    }
+  end
+
   private
 
   PASSWORD_RULES = {
