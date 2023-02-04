@@ -20,6 +20,11 @@ require 'action_cable/engine'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Sooner environment vars loading only in specific environment
+def secure_env? = %i[development? test?].any? { |env| Rails.env.send(env) }
+
+Dotenv::Railtie.load if secure_env?
+
 module RailsTemplate
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
