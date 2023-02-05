@@ -25,3 +25,20 @@ run:
 			-v $(host-folder):$(cont-folder) \
 			$(img-name)
 	@echo "⚡ Running!!"
+
+
+.PHONY: clean
+clean: container/stop container/remove
+	@echo "🧹 Clean done"
+
+container/stop:
+	@docker container stop $(cont-name)
+	@echo "🛑 Stop $(cont-name)"
+
+container/remove:
+	@docker container rm $(cont-name)
+	@echo "🗑 Remove container $(cont-name)"
+
+image/remove: clean
+	@docker image remove $(img-name)
+	@echo "🗑 Remove image $(img-name)"
