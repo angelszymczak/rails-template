@@ -20,7 +20,10 @@ RUN gem update --system && gem install bundler -v $BUNDLER_VERSION
 ARG APP_NAME
 ENV INSTALL_PATH /opt/$APP_NAME
 RUN mkdir -p $INSTALL_PATH
-COPY . $INSTALL_PATH
+
+WORKDIR $INSTALL_PATH
+
+COPY Gemfile* ./
 
 RUN bundle install --retry=4
 
