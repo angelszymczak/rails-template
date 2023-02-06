@@ -21,6 +21,7 @@ build:
 .PHONY: run
 run:
 	@docker run -it --name $(cont-name) \
+			-e EXPOSED_PORT=$(cont-port) \
 			-p $(host-port):$(cont-port) \
 			-v $(host-folder):$(cont-folder) \
 			$(img-name)

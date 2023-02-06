@@ -27,7 +27,11 @@ COPY Gemfile* ./
 
 RUN bundle install --retry=4
 
+COPY bin/docker-entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
 ARG CONT_PORT
 EXPOSE $CONT_PORT
 
-CMD bundle exec rails s -p 5000 -b 0.0.0.0
+CMD bundle exec rails s -p $EXPOSED_PORT -b 0.0.0.0
