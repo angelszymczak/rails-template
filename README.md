@@ -77,6 +77,12 @@ Things you may want to cover:
 - request spec => http layer with mock I/O all path authorization/authentication it should talk with I/O test interface
 - model spec => domain layer it should talk with I/O test interface
 
+
+## CI/CD
+- ensure you have the environment variables file `.env`
+- build project
+  - `make build`
+
 * System dependencies
 
 * Configuration
