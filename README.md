@@ -83,7 +83,7 @@ Things you may want to cover:
 - build project
   - `make build`
 
-## Merge Convention
+## Merge Strategy
 - We are looking to have a one "squashed" commit at main branch and to keep live the branch with historical changes.
 
 * System dependencies
