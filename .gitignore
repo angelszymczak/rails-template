@@ -37,3 +37,6 @@
 
 # Test Coverage Output
 coverage/
+
+# Secrets
+config/application.yml

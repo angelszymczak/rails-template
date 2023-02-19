@@ -63,7 +63,11 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
+  # Env Variables Management
+  # Loader from .env file, it can be extended for other environments
   gem 'dotenv-rails', '~> 2.8'
+  # Loader from .yml file
+  gem 'figaro', '~> 1.2'
 
   gem 'rspec-rails', '~> 6.0'
 
@@ -101,4 +105,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
