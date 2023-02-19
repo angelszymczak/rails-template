@@ -40,3 +40,5 @@ coverage/
 
 # Secrets
 config/application.yml
+
+/config/credentials/development.key
