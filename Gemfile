@@ -97,11 +97,11 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
-  gem 'capistrano', '~> 3.17'
-  gem 'capistrano3-puma', '~> 5.2'
-  gem 'capistrano-bundler', '~> 2.1'
-  gem 'capistrano-rails', '~> 1.6'
-  gem 'capistrano-rbenv', '~> 2.2'
+  #gem 'capistrano', '~> 3.17'
+  #gem 'capistrano3-puma', '~> 5.2'
+  #gem 'capistrano-bundler', '~> 2.1'
+  #gem 'capistrano-rails', '~> 1.6'
+  #gem 'capistrano-rbenv', '~> 2.2'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -113,3 +113,16 @@ end
 # Env Variables Management
 # Loader from .env file, it can be extended for other environments
 gem 'dotenv-rails', '~> 2.8'
+
+gem "capistrano", "~> 3.17"
+gem "capistrano3-puma", "~> 5.2"
+gem "capistrano-bundler", "~> 2.1"
+gem "capistrano-rails", "~> 1.6"
+gem "capistrano-rbenv", "~> 2.2"
+
+# gem "capistrano", "~> 3.5.0"
+#
+# gem "capistrano3-puma", "~> 1.2"
+# gem "capistrano-bundler", "~> 2.1"
+# gem "capistrano-rails", "~> 1.6"
+# gem "capistrano-rbenv", "~> 2.2"
