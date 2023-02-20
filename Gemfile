@@ -79,7 +79,7 @@ group :development, :test do
   gem 'capybara', '~> 3.38'
   gem 'webdrivers', '~> 5.2', require: 'webdrivers/chromedriver'
 
-  gem 'cucumber-rails', '~> 2.6', require: false
+  #gem 'cucumber-rails', '~> 2.6', require: false
   gem 'database_cleaner-active_record', '~> 2.0', require: false
 
   gem 'rubocop', '~> 1.39'
@@ -120,3 +120,4 @@ gem "capistrano3-puma", "~> 5.2"
 gem "capistrano-bundler", "~> 2.1"
 gem "capistrano-rails", "~> 1.6"
 gem "capistrano-rbenv", "~> 2.2"
+gem 'cucumber-rails', '~> 2.6', require: false
