@@ -39,7 +39,7 @@ jobs:
           POSTGRES_PASSWORD: pass1234
     env:
       RAILS_ENV: test
-      RAILS_MASTER_KEY: %{{ secrets.RAILS_MASTER_KEY }}
+      RAILS_MASTER_KEY: 996b1fddc91b750da39504272b2da8e8
       DATABASE_URL: 'postgres://ubuntu:pass1234@localhost:5432/rails-template_production'
     steps:
       - name: Checkout Code
