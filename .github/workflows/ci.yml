@@ -1,10 +1,13 @@
-name: First Workflow
+name: CI/CD
 
 on:
+  pull_request:
+    branches:
+      - '*'
   push:
     branches:
       - 'main'
-      - 'cicd/**'
+      - 'development'
 
 jobs:
   build:
@@ -22,3 +25,57 @@ jobs:
         run: |
           echo "Job Context: $JOB_CONTEXT"
           echo "Done!"
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_DB: rails-template_production
+          POSTGRES_USER: ubuntu
+          POSTGRES_PASSWORD: pass1234
+    env:
+      RAILS_ENV: test
+      RAILS_MASTER_KEY: %{{ secrets.RAILS_MASTER_KEY }}
+      DATABASE_URL: 'postgres://ubuntu:pass1234@localhost:5432/rails-template_production'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby and Gems
+        # v1.92, this uses the Ruby version from .ruby-version
+        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
+        with:
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
+
+      - name: Setup Database Schema
+        run: bin/rails db:schema:load
+
+      - name: Run tests
+        run: |
+          bundle exec rspec spec
+
+      - uses: joshmfrankel/simplecov-check-action@main
+        with:
+          minimum_suite_coverage: 90
+          minimum_file_coverage: 70
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Setup Ruby and Gems
+        # v1.92, this uses the Ruby version from .ruby-version
+        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
+        with:
+          # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
+      - name: Lint Ruby files
+        run: bundle exec rubocop
+#      - name: Security Audit Application Code
+#        run: bundle exec brakeman

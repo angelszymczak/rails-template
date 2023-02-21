@@ -83,4 +83,4 @@ production:
   <<: *default
   database: rails-template_production
   username: ubuntu
-  password: ubuntu
+  password: pass1234
