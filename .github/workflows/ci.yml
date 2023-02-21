@@ -26,7 +26,7 @@ jobs:
           echo "Job Context: $JOB_CONTEXT"
           echo "Done!"
 
-  test:
+  tests:
     runs-on: ubuntu-latest
     services:
       postgres:
