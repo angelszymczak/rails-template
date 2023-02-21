@@ -26,7 +26,7 @@ jobs:
           echo "Job Context: $JOB_CONTEXT"
           echo "Done!"
 
-  test:
+  tests:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -39,22 +39,20 @@ jobs:
           POSTGRES_PASSWORD: pass1234
     env:
       RAILS_ENV: test
-      RAILS_MASTER_KEY: %{{ secrets.RAILS_MASTER_KEY }}
+      RAILS_MASTER_KEY: 996b1fddc91b750da39504272b2da8e8b
       DATABASE_URL: 'postgres://ubuntu:pass1234@localhost:5432/rails-template_production'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-
       - name: Setup Ruby and Gems
         # v1.92, this uses the Ruby version from .ruby-version
+        # runs 'bundle install' and caches installed gems automatically
         uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
         with:
-          # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
 
       - name: Setup Database Schema
         run: bin/rails db:schema:load
-
       - name: Run tests
         run: |
           bundle exec rspec spec
